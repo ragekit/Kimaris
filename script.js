@@ -206,7 +206,7 @@ function reload(){
 	scene.add(camParent);
 	create();
 	
-	console.log(Math.random()*((Math.sin(tick/100)+1)/2)*5000);
+	console.log(Math.random()*((Math.sin(tick/100)+1)/2)*8000);
 	setTimeout(reload,Math.random()*((Math.sin(tick/100)+1)/2)*5000 + 100);
 }
 
