@@ -82,7 +82,6 @@ var ring = function(radius,width, segments,alt = false,start = 0){
 			
 			
 			temp[2*i] = geometry.vertices[i];
-			console.log(Math.floor(geometry.vertices.length/2))
 			temp[2*i+1] = geometry.vertices[i + Math.floor(geometry.vertices.length/2)];
 			
 		}
@@ -196,6 +195,9 @@ function create(){
 	bc = new brokenCircle(Math.random()+.2,Math.floor(Math.random()*5)+5,Math.random()*Math.PI*2);
 }
 
+var tick = 0;
+
+
 function reload(){
 	for( var i = scene.children.length - 1; i >= 0; i--) { 
 		var obj = scene.children[i];
@@ -204,17 +206,21 @@ function reload(){
 	scene.add(camParent);
 	create();
 	
-	
-	setTimeout(reload,Math.random()*1000);
+	console.log(Math.random()*((Math.sin(tick/100)+1)/2)*5000);
+	setTimeout(reload,Math.random()*((Math.sin(tick/100)+1)/2)*5000 + 100);
 }
+
+
+
 
 reload();
 
 
-var tick = 0;
 
 (function render() {
 	requestAnimationFrame( render );
+
+
 
 	//c3.rotateZ(.008);
 	camParent.rotation.y =(mouseX | 0)/800;
