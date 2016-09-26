@@ -215,20 +215,22 @@ var tick = 0;
 
 (function render() {
 	requestAnimationFrame( render );
-	renderer.render( scene, camera );
 
 	//c3.rotateZ(.008);
 	camParent.rotation.y =(mouseX | 0)/800;
 	camParent.rotation.x =(mouseY | 0)/1000;
 	t2.rotation.z = (mouseX | 0)/800;
 	
-	c2.rotateY(.005 * tick);
-	c3.rotateX(.002* tick);
-	bc.rotateZ(0.01* tick);
+	c2.rotation.y = (.005 * tick);
+	c3.rotation.x = (.002* tick);
+	bc.rotation.z = (0.01* tick);
 	
-	fr1.rotateZ(0.005* tick);
-	fr2.rotateZ(-0.005* tick);
-	fr3.rotateZ(0.003* tick);
+	fr1.rotation.z =(0.005* tick);
+	fr2.rotation.z =(-0.005* tick);
+	fr3.rotation.z =(0.003* tick);
+	
+	tick+=1;
+	renderer.render( scene, camera );
 
 })()
 
